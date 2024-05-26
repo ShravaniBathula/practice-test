@@ -1,0 +1,6 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/mobilex-$_ENV_NAME/$REPO_NAME/$BRANCH_NAME:$REPO_NAME-${COMMIT_SHA}', '-f','Dockerfile','.']
+  
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/mobilex-$_ENV_NAME/$REPO_NAME/$BRANCH_NAME:$REPO_NAME-${COMMIT_SHA}']
