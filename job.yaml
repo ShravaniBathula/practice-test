@@ -1,0 +1,40 @@
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  labels:
+    service: mobilex-database-service
+  name: mobilex-database-service
+spec:
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+        app: mobilex-database-service
+    spec:
+      containers:
+      - name: mobilex-database-service
+        image: us-central1-docker.pkg.dev/non-prod-407910/mobilex-qa/database-service/develop:database-service-452d81906055fbaa9c9bd62f7612927931ca82cb
+        imagePullPolicy: Always
+        env:
+          - name: DB_HOSTNAME
+            valueFrom:
+              secretKeyRef:
+                name: mobilexnpsecretsql
+                key: DB_HOSTNAME
+          - name: DB_NAME
+            valueFrom:
+              secretKeyRef:
+                name: mobilexnpsecretsql
+                key: DB_NAME
+          - name: DB_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: mobilexnpsecretsql
+                key: DB_USERNAME
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mobilexnpsecretsql
+                key: DB_PASSWORD
+      restartPolicy: Never
