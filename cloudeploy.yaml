@@ -18,5 +18,5 @@ steps:
       - 'CLOUDSDK_COMPUTE_REGION=us-central1'
       - 'CLOUDSDK_CONTAINER_CLUSTER=mobilex-$_ENV_NAME-cluster'
     
- substitutions:
+substitutions:
   _ENV_NAME: 'default_value'
