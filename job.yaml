@@ -1,9 +1,10 @@
-
 apiVersion: batch/v1
 kind: Job
 metadata:
   name: mobilex-job
 spec:
+  template:
+    spec:
       containers:
       - name: mobilex-job
         image: us-central1-docker.pkg.dev/proven-cogency-400410/mobilex-dev/practice-test/develop@sha256:f43338e622d06c1ef3a406200966d0c3fc8d3fd0d7f716d3094b796a27d4324c
@@ -25,4 +26,3 @@ spec:
                 name: gke-cloud-sql-secrets
                 key: db_password
       restartPolicy: Never
-  
