@@ -32,4 +32,5 @@ ex: spec:
         cpu: 100m
         memory: 50Mi
       
-        
+ Command for granting full access to db to user:
+ GRANT ALL PRIVILEGES ON DATABASE dbTest TO "user";       
