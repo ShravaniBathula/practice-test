@@ -4,7 +4,7 @@ steps:
     args:
       - '-c'
       - |
-        gcloud container clusters get-credentials $_ENV_NAME-mymobilex-cluster-uscentral1 \
+        gcloud container clusters get-credentials $_ENV_NAME-mymobilex-cluster \
         --region=us-central1 
   - name: 'gcr.io/cloud-builders/kubectl'
     env:
