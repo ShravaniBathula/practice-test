@@ -4,20 +4,19 @@ steps:
     args:
       - '-c'
       - |
-        gcloud container clusters update $_K8S_NAME-mymobilex-cluster-uscentral1 \
+        gcloud container clusters update mobilex-$_ENV_NAME-cluster \
         --region=us-central1 \ 
   
   - name: 'gcr.io/cloud-builders/kubectl'
     env:
       - 'CLOUDSDK_COMPUTE_REGION=us-central1'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=$_K8S_NAME-mymobilex-cluster-uscentral1'   
+      - 'CLOUDSDK_CONTAINER_CLUSTER=mobilex-$_ENV_NAME-cluster'   
       
   - name: 'gcr.io/cloud-builders/kubectl'
-    args: ['apply', '-f', 'job.yaml', '--namespace=mobilex-$_ENV_NAME']
+    args: ['apply', '-f', 'job.yaml', '--namespace=mobilexan']
     env:
       - 'CLOUDSDK_COMPUTE_REGION=us-central1'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=$_K8S_NAME-mymobilex-cluster-uscentral1'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=mobilex-$_ENV_NAME-cluster'
     
  substitutions:
   _ENV_NAME: 'default_value'
-  _K8S_NAME: 'default_value'
