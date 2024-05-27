@@ -1,4 +1,11 @@
-steps: 
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud container clusters get-credentials $_ENV_NAME-mymobilex-cluster-uscentral1 \
+        --region=us-central1 
   - name: 'gcr.io/cloud-builders/kubectl'
     env:
       - 'CLOUDSDK_COMPUTE_REGION=us-central1'
