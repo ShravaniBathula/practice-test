@@ -1,12 +1,4 @@
 steps: 
-  - name: 'gcr.io/cloud-builders/gcloud'
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - |
-        gcloud container clusters update mobilex-$_ENV_NAME-cluster \
-        --region=us-central1 \ 
-  
   - name: 'gcr.io/cloud-builders/kubectl'
     env:
       - 'CLOUDSDK_COMPUTE_REGION=us-central1'
