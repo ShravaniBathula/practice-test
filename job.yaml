@@ -7,7 +7,7 @@ spec:
     spec:
       containers:
       - name: mobilex-job
-        image: us-central1-docker.pkg.dev/proven-cogency-400410/mobilex-dev/practice-test/develop@sha256:f43338e622d06c1ef3a406200966d0c3fc8d3fd0d7f716d3094b796a27d4324c
+        image: us-central1-docker.pkg.dev/proven-cogency-400410/mobilex-dev/practice-test/develop@sha256:493bc8caafa6256ae1b9ac2dc12eb39b7c9ff98aee2501ffabd2633150c19b62
         imagePullPolicy: Always
         env:
           - name: DB_NAME
